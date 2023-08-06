@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .btn{
+        @apply px-4 py-2 font-bold bg-teal-500 text-center rounded-lg text-white hover:bg-teal-900 disabled:bg-teal-200
+    }
+}
+
+body{
+    background-color: #2e2e2e;
+    color: white;
+}
