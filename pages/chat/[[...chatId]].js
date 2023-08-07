@@ -25,26 +25,37 @@ const chat = () => {
       return newChatMessage
     })
     setMessageText("")
+    const response = await fetch(`/api/chat/createNewChat`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: messageText
+      })
+    })
+    const json = await response.json()
+    console.log("New Chat: ", json);
     // console.log(messageText);
     // console.log(newChatMessages);
-    const response = await fetch(`/api/chat/sendMessage`, {
-      method: "POST",
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify({ message: messageText }),
-    })
-    const data = response.body;
-    // console.log("Response: ", response);
-    // console.log("Data: ", data);
-    if (!data) {
-      console.log('No response from server');
-    }
-    const reader = data.getReader()
-    await streamReader(reader, (message) => {
-      // console.log("message: ", message);
-      setIncomingMessage((prev) => `${prev}${message.content}`)
-    })
+    // const response = await fetch(`/api/chat/sendMessage`, {
+    //   method: "POST",
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   },
+    //   body: JSON.stringify({ message: messageText }),
+    // })
+    // const data = response.body;
+    // // console.log("Response: ", response);
+    // // console.log("Data: ", data);
+    // if (!data) {
+    //   console.log('No response from server');
+    // }
+    // const reader = data.getReader()
+    // await streamReader(reader, (message) => {
+    //   // console.log("message: ", message);
+    //   setIncomingMessage((prev) => `${prev}${message.content}`)
+    // })
     setGeneratingResponse(false)
     // console.log('I reached bottom of stream');
   }
