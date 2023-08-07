@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { v4 as uuid } from 'uuid';
 import Message from '@/components/Message';
 
-const chat = () => {
+const Chat = () => {
   const [messageText, setMessageText] = useState("")
   const [incomingMessage, setIncomingMessage] = useState("")
   const [newChatMessages, setNewChatMessages] = useState([])
@@ -106,4 +106,4 @@ const chat = () => {
   )
 }
 
-export default chat
+export default Chat
