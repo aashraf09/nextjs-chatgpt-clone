@@ -6,6 +6,10 @@
     .btn{
         @apply px-4 py-2 font-bold bg-teal-500 text-center rounded-lg text-white hover:bg-teal-900 disabled:bg-teal-200
     }
+
+    .side-menu-item{
+        @apply m-2 p-2 flex items-center bg-zinc-700 gap-4 rounded-md hover:bg-zinc-900
+    }
 }
 
 body{

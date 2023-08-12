@@ -11,14 +11,14 @@ export default async function handler(req, res) {
             content: message,
         }
         const client = await clientPromise
-        const db = client.db("BotDatabase")
-        const chat = db.collection('chats').insertOne({
+        const db = client.db("Hii")
+        const chat = db.collection('hithere').insertOne({
             userId: user.sub,
             messages: [newUserMessage],
             title: message
         })
         res.status(200).json({
-            _id: chat.insertedId.toString(),
+            _id: chat.insertedId?.toString(),
             messages: [newUserMessage],
             title: message
         })
