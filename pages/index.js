@@ -1,12 +1,12 @@
 import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { useUser } from '@auth0/nextjs-auth0/client'
+import { UserContext } from '@auth0/nextjs-auth0/client'
 import { getSession } from '@auth0/nextjs-auth0'
 
 
 const index = () => {
-  const { isLoading, error, user } = useUser()
+  const { isLoading, error, user } = UserContext
 
   if (isLoading) return <div>Loading...</div>
   if (error) return <div>{error.message}</div>
